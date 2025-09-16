@@ -67,7 +67,7 @@ class CLL:
             if temp.next==self.tail: #if we want to delete the last node 
                                       # we need to assign it to the prev node which is temp
                 self.tail=temp  #assigned tail to the prev node before deleting it
-            temp.next=temp.next.next #we hae 2 pointer the pos and the before node 
+            temp.next=temp.next.next #we hae 2 pointer the pos and the before node to disconnect
             
 
 
@@ -77,6 +77,7 @@ class CLL:
         else:
             temp=self.head
             print(temp.data,"-->",end=" ")
+            
             while temp.next != self.head:
                 temp=temp.next
                 print(temp.data,"-->",end=" ")                

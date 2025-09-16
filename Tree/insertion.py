@@ -4,7 +4,6 @@ class Node:
         self.left = None  #left and right children are none
         self.right = None
 
-
 class BST:
     def __init__(self):
         self.root = None   # Initially tree is empty
@@ -13,6 +12,7 @@ class BST:
         self.root = self.insert_node(self.root, val)
 
     def insert_node(self, root, val):  # recursve help to insert
+
         if root is None:  # current node is none
             return Node(val)  # Insert new node here
         
@@ -28,6 +28,7 @@ class BST:
         return self.search_node(self.root, val)
 
     def search_node(self, root, val):
+
         if root is None:
             return False  # Reached empty spot, not found
 
@@ -43,6 +44,7 @@ class BST:
         self.root = self.delete_node(self.root, val)  # Delete starting at root
 
     def delete_node(self, root, val):
+        
         if not root:
             return None
         if val < root.val:

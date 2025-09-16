@@ -15,22 +15,24 @@ class DLL:
         self.head.prev=None #backward link destroyed
 
     def Delete_end(self):
-        temp=self.head.next # temp starts from the second node
-        before=self.head  # before starts from the head
+        temp1=self.head.next # temp starts from the second node
+        temp=self.head  # before starts from the head
 
-        while temp.next is not None:
+        while temp1.next is not None:
+            temp1=temp1.next
             temp=temp.next
-            before=before.next
 
-        before.next=None  #removes last link
-        temp.prev=None   # remove backward link from deleted node
+        temp.next=None  #removes last link    (1.n,2.p)
+        temp1.prev=None   # remove backward link from deleted node
 
     def Delete_pos(self,pos):
         temp=self.head.next
         before=self.head
+        
         for i in range(1,pos-1):
             temp=temp.next
             before=before.next
+
         before.next=temp.next
         temp.next=before
         temp.next=None

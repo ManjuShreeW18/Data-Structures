@@ -17,11 +17,7 @@ class DLL:
 
     def Insert_end(self,data):
         ne=Node(data)
-        temp=self.head #if u use if else remove this line else use it 
-        # if self.head is None:   #if-else is optional
-        #     self.head=ne
-        # else:
-        #     temp=self.head
+        temp=self.head 
         while temp.next:
             temp=temp.next
         temp.next= ne  # establishes connecton for forward link
@@ -30,13 +26,16 @@ class DLL:
     def Insert_pos(self,pos,data):
         np=Node(data)
         temp=self.head
+
         for i in range(1,pos-1):
+
             temp=temp.next
-            np.prev=temp    
-            np.next=temp.next
+            np.prev=temp    # Point new node's prev to current node
+            np.next=temp.next  # Point new node's next to current node's next
+
         if temp.next:
-            temp.next.prev=np
-            temp.next=np
+            temp.next.prev=np # backward link
+            temp.next=np   # forward link
 
     def display(self):
         temp=self.head
@@ -54,11 +53,11 @@ class DLL:
         if self.head is None:
             print("empty dll")
             return
-        while temp.next:
+        while temp.next: #Also this stmt is added
             temp=temp.next
         while temp:
             print(temp.data,"<-->",end=" ")
-            temp=temp.prev
+            temp=temp.prev #change is here
         print("None")
             
 l=DLL()
